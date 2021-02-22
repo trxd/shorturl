@@ -2,6 +2,8 @@ FROM golang:1-alpine AS builder
 
 RUN apk update && apk --no-cache add build-base git
 
+ENV GO111MODULE=off
+
 RUN go get github.com/GeertJohan/go.rice/rice
 RUN go get github.com/prologic/shorturl
 RUN cd /go/src/github.com/prologic/shorturl && \
